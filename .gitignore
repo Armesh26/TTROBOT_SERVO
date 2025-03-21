@@ -1,0 +1,33 @@
+# Build artifacts
+*.o
+*.a
+*.so
+*.out
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Compiled examples
+examples/*/*/Ping
+examples/*/*/FeedBack
+examples/*/*/Broadcast
+examples/*/*/WritePos
+examples/*/*/WriteSpe
+examples/*/*/RegWritePos
+examples/*/*/SyncWritePos
+examples/*/*/ProgramEprom
+examples/*/*/CalibrationOfs
+examples/*/*/ServoScanner
+examples/*/*/SyncRead
+examples/*/*/TTRobot
+examples/*/*/WritePWM
+
+# Misc
+.DS_Store
+.vscode/
+*.swp
+*~ 
