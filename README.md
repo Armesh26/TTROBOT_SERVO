@@ -35,7 +35,7 @@ Navigate to any example directory and build:
 cd examples/SMS_STS/Ping
 cmake .
 make
-./Ping
+sudo ./Ping /dev/ttyACM0
 ```
 
 ## License
