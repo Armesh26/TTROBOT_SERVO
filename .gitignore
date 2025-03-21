@@ -11,20 +11,12 @@ cmake_install.cmake
 Makefile
 *.cmake
 
-# Compiled examples
-examples/*/*/Ping
-examples/*/*/FeedBack
-examples/*/*/Broadcast
-examples/*/*/WritePos
-examples/*/*/WriteSpe
-examples/*/*/RegWritePos
-examples/*/*/SyncWritePos
-examples/*/*/ProgramEprom
-examples/*/*/CalibrationOfs
-examples/*/*/ServoScanner
-examples/*/*/SyncRead
-examples/*/*/TTRobot
-examples/*/*/WritePWM
+# Exclude all files in examples subdirectories
+examples/*/*/
+
+# Only include cpp files and CMakeLists.txt in examples subdirectories 
+!examples/*/*/*.cpp
+!examples/*/*/CMakeLists.txt
 
 # Misc
 .DS_Store
