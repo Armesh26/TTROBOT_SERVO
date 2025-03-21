@@ -1,3 +1,0 @@
-/home/nvidia/SCServo_Linux_220329/SCServo_Linux/examples/SMS_STS/Ping/CMakeFiles/Ping.dir
-/home/nvidia/SCServo_Linux_220329/SCServo_Linux/examples/SMS_STS/Ping/CMakeFiles/edit_cache.dir
-/home/nvidia/SCServo_Linux_220329/SCServo_Linux/examples/SMS_STS/Ping/CMakeFiles/rebuild_cache.dir
