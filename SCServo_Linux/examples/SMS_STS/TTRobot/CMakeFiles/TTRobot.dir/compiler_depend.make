@@ -184,6 +184,32 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
   /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/sstream \
+  /usr/include/c++/11/bits/sstream.tcc \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/aarch64-linux-gnu/bits/math-vector.h \
+  /usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/aarch64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/aarch64-linux-gnu/bits/fp-logb.h \
+  /usr/include/aarch64-linux-gnu/bits/fp-fast.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls.h \
+  /usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/aarch64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
   /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SCServo.h \
   /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SMSBL.h \
   /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SCSerial.h \
@@ -224,56 +250,8 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
   /usr/include/aarch64-linux-gnu/bits/string_fortified.h \
   /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SCSCL.h \
   /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SMSCL.h \
-  /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SMS_STS.h \
-  /usr/include/c++/11/vector \
-  /usr/include/c++/11/bits/stl_uninitialized.h \
-  /usr/include/c++/11/bits/stl_vector.h \
-  /usr/include/c++/11/bits/stl_bvector.h \
-  /usr/include/c++/11/bits/vector.tcc \
-  /usr/include/c++/11/iomanip \
-  /usr/include/c++/11/locale \
-  /usr/include/c++/11/bits/locale_facets_nonio.h \
-  /usr/include/c++/11/ctime \
-  /usr/include/aarch64-linux-gnu/c++/11/bits/time_members.h \
-  /usr/include/aarch64-linux-gnu/c++/11/bits/messages_members.h \
-  /usr/include/libintl.h \
-  /usr/include/c++/11/bits/codecvt.h \
-  /usr/include/c++/11/bits/locale_facets_nonio.tcc \
-  /usr/include/c++/11/bits/locale_conv.h \
-  /usr/include/c++/11/bits/unique_ptr.h \
-  /usr/include/c++/11/utility \
-  /usr/include/c++/11/bits/stl_relops.h \
-  /usr/include/c++/11/tuple \
-  /usr/include/c++/11/array \
-  /usr/include/c++/11/bits/uses_allocator.h \
-  /usr/include/c++/11/bits/invoke.h
+  /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SMS_STS.h
 
-
-/usr/include/c++/11/bits/invoke.h:
-
-/usr/include/c++/11/array:
-
-/usr/include/c++/11/bits/stl_relops.h:
-
-/usr/include/c++/11/bits/locale_conv.h:
-
-/usr/include/aarch64-linux-gnu/c++/11/bits/time_members.h:
-
-/usr/include/c++/11/bits/codecvt.h:
-
-/usr/include/c++/11/ctime:
-
-/usr/include/c++/11/bits/locale_facets_nonio.h:
-
-/usr/include/c++/11/bits/vector.tcc:
-
-/usr/include/c++/11/bits/stl_bvector.h:
-
-/usr/include/c++/11/bits/stl_uninitialized.h:
-
-/usr/include/c++/11/vector:
-
-/usr/include/strings.h:
 
 /usr/include/string.h:
 
@@ -281,15 +259,11 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/aarch64-linux-gnu/bits/confname.h:
 
-/usr/include/aarch64-linux-gnu/bits/environments.h:
-
 /usr/include/unistd.h:
 
 /usr/include/aarch64-linux-gnu/bits/fcntl2.h:
 
 /usr/include/aarch64-linux-gnu/bits/stat.h:
-
-/usr/include/c++/11/bits/uses_allocator.h:
 
 /usr/include/linux/falloc.h:
 
@@ -308,6 +282,38 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SCS.h:
 
 /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SCSerial.h:
+
+/usr/include/c++/11/bits/stl_tempbuf.h:
+
+/usr/include/c++/11/bits/stl_heap.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/aarch64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/aarch64-linux-gnu/bits/environments.h:
+
+/usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/math.h:
+
+/usr/include/c++/11/cmath:
+
+/usr/include/c++/11/bits/vector.tcc:
+
+/usr/include/c++/11/bits/stl_bvector.h:
+
+/usr/include/c++/11/bits/stl_uninitialized.h:
+
+/usr/include/c++/11/vector:
+
+/usr/include/strings.h:
+
+/usr/include/c++/11/bits/sstream.tcc:
+
+/usr/include/c++/11/sstream:
 
 /usr/include/c++/11/bits/istream.tcc:
 
@@ -343,15 +349,13 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/asm-generic/errno.h:
 
-/usr/include/c++/11/locale:
-
 /usr/include/aarch64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/linux/errno.h:
 
-/usr/include/c++/11/utility:
-
 /home/nvidia/SCServo_Linux_220329/SCServo_Linux/SMS_STS.h:
+
+/usr/include/c++/11/utility:
 
 /usr/include/errno.h:
 
@@ -377,8 +381,6 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/aarch64-linux-gnu/bits/types/sigset_t.h:
 
-/usr/include/libintl.h:
-
 /usr/include/aarch64-linux-gnu/sys/select.h:
 
 /usr/include/aarch64-linux-gnu/bits/termios-c_cc.h:
@@ -390,6 +392,8 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 /usr/include/aarch64-linux-gnu/sys/types.h:
 
 /usr/include/aarch64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
 
 /usr/include/aarch64-linux-gnu/bits/waitflags.h:
 
@@ -419,8 +423,6 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
 
-/usr/include/aarch64-linux-gnu/c++/11/bits/messages_members.h:
-
 /usr/include/aarch64-linux-gnu/bits/strings_fortified.h:
 
 /usr/include/aarch64-linux-gnu/bits/pthreadtypes.h:
@@ -429,9 +431,9 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/fcntl.h:
 
-/usr/include/aarch64-linux-gnu/bits/types/struct_tm.h:
+/usr/include/aarch64-linux-gnu/bits/iscanonical.h:
 
-/usr/include/c++/11/tuple:
+/usr/include/aarch64-linux-gnu/bits/types/struct_tm.h:
 
 /usr/include/c++/11/type_traits:
 
@@ -475,6 +477,8 @@ CMakeFiles/TTRobot.dir/TTRobot.cpp.o: TTRobot.cpp \
 
 /usr/include/c++/11/bits/exception_defines.h:
 
+/usr/include/c++/11/bits/stl_algo.h:
+
 TTRobot.cpp:
 
 /usr/include/asm-generic/errno-base.h:
@@ -511,8 +515,6 @@ TTRobot.cpp:
 
 /usr/include/ctype.h:
 
-/usr/include/c++/11/iomanip:
-
 /usr/include/c++/11/ext/new_allocator.h:
 
 /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h:
@@ -539,13 +541,9 @@ TTRobot.cpp:
 
 /usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:
 
-/usr/include/c++/11/bits/unique_ptr.h:
-
 /usr/include/c++/11/ostream:
 
 /usr/include/c++/11/bits/ostream_insert.h:
-
-/usr/include/c++/11/bits/locale_facets_nonio.tcc:
 
 /usr/include/c++/11/bits/stl_pair.h:
 
@@ -585,6 +583,8 @@ TTRobot.cpp:
 
 /usr/include/c++/11/bits/memoryfwd.h:
 
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
 /usr/include/c++/11/bits/cxxabi_init_exception.h:
 
 /usr/include/wchar.h:
@@ -610,6 +610,8 @@ TTRobot.cpp:
 /usr/include/aarch64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/aarch64-linux-gnu/bits/termios-c_iflag.h:
+
+/usr/include/aarch64-linux-gnu/bits/fp-logb.h:
 
 /usr/include/c++/11/bits/predefined_ops.h:
 
@@ -667,11 +669,15 @@ TTRobot.cpp:
 
 /usr/include/sched.h:
 
+/usr/include/aarch64-linux-gnu/bits/mathcalls.h:
+
 /usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h:
 
 /usr/include/c++/11/debug/debug.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls-helper-functions.h:
 
 /usr/include/aarch64-linux-gnu/c++/11/bits/c++allocator.h:
 
@@ -727,6 +733,8 @@ TTRobot.cpp:
 
 /usr/include/aarch64-linux-gnu/bits/fcntl.h:
 
+/usr/include/c++/11/algorithm:
+
 /usr/include/c++/11/iostream:
 
 /usr/include/aarch64-linux-gnu/bits/floatn.h:
@@ -738,5 +746,9 @@ TTRobot.cpp:
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
 /usr/include/c++/11/ext/alloc_traits.h:
+
+/usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/usr/include/aarch64-linux-gnu/bits/math-vector.h:
 
 /usr/include/c++/11/bits/alloc_traits.h:

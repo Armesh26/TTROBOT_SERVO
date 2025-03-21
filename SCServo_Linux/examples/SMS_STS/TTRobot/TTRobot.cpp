@@ -7,6 +7,12 @@
 * - Servo 7 is an individual servo
 *
 * Input format from terminal: Angle1,Angle3,Angle5,Angle7
+* Special commands:
+* - SET: Calibrates all connected servos to set current position as the middle position (180 degrees)
+* - POS1: Move to preset position 1 (180,180,180,180)
+* - POS2: Move to preset position 2 (180,270,180,180)
+* - POS3: Move to preset position 3 (180,360,180,180)
+* - q/quit/exit: Exits the program
 */
 
 #include <iostream>
@@ -31,6 +37,72 @@ int16_t convertToPosition(float angle) {
 float convertToAngle(int16_t position) {
     // Assuming position range is 0-4095 (12-bit)
     return (position / 4095.0f) * 360.0f;
+}
+
+// Function to calibrate a servo setting current position as middle (180 degrees)
+void calibrateServo(uint8_t id) {
+    // The CalibrationOfs function returns the servo ID on success
+    if (sm_st.CalibrationOfs(id) == id) {
+        std::cout << "Servo " << static_cast<int>(id) << " calibrated successfully" << std::endl;
+    } else {
+        std::cout << "Failed to calibrate servo " << static_cast<int>(id) << std::endl;
+    }
+}
+
+// Function to move servos to a preset position
+void moveToPreset(const std::vector<uint8_t>& connectedIDs, float angle1, float angle3, float angle5, float angle7) {
+    // Calculate mirrored angles for servos 2, 4, and 6
+    float angle2 = 360.0f - angle1;
+    float angle4 = 360.0f - angle3;
+    float angle6 = 360.0f - angle5;
+    
+    // Display the angles being applied
+    std::cout << "\nApplying angles:" << std::endl;
+    std::cout << "Servo 1: " << angle1 << "° | Servo 2: " << angle2 << "° (mirrored)" << std::endl;
+    std::cout << "Servo 3: " << angle3 << "° | Servo 4: " << angle4 << "° (mirrored)" << std::endl;
+    std::cout << "Servo 5: " << angle5 << "° | Servo 6: " << angle6 << "° (mirrored)" << std::endl;
+    std::cout << "Servo 7: " << angle7 << "°" << std::endl;
+    
+    // Convert angles to positions
+    int16_t pos1 = convertToPosition(angle1);
+    int16_t pos2 = convertToPosition(angle2);
+    int16_t pos3 = convertToPosition(angle3);
+    int16_t pos4 = convertToPosition(angle4);
+    int16_t pos5 = convertToPosition(angle5);
+    int16_t pos6 = convertToPosition(angle6);
+    int16_t pos7 = convertToPosition(angle7);
+    
+    // Define servo speeds and acceleration
+    const uint16_t speed = 1500;
+    const uint8_t acc = 50;
+    
+    // Move servos to the specified positions
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 1) != connectedIDs.end()) {
+        sm_st.WritePosEx(1, pos1, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 2) != connectedIDs.end()) {
+        sm_st.WritePosEx(2, pos2, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 3) != connectedIDs.end()) {
+        sm_st.WritePosEx(3, pos3, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 4) != connectedIDs.end()) {
+        sm_st.WritePosEx(4, pos4, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 5) != connectedIDs.end()) {
+        sm_st.WritePosEx(5, pos5, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 6) != connectedIDs.end()) {
+        sm_st.WritePosEx(6, pos6, speed, acc);
+    }
+    if(std::find(connectedIDs.begin(), connectedIDs.end(), 7) != connectedIDs.end()) {
+        sm_st.WritePosEx(7, pos7, speed, acc);
+    }
+    
+    // Wait for movement to complete (approximation)
+    usleep(500 * 1000); // 500ms
+    
+    std::cout << "Movement complete." << std::endl;
 }
 
 // Function to parse the input string into angles
@@ -99,12 +171,16 @@ int main(int argc, char **argv)
     // Main control loop
     std::string input;
     float angle1, angle3, angle5, angle7;
-    float angle2, angle4, angle6;
     
     std::cout << "\n=========================================" << std::endl;
     std::cout << "TTRobot Servo Controller" << std::endl;
     std::cout << "Enter angles in format: Angle1,Angle3,Angle5,Angle7" << std::endl;
-    std::cout << "Enter 'q' to quit" << std::endl;
+    std::cout << "Special commands:" << std::endl;
+    std::cout << "  SET - Calibrate all servos to set current position as middle (180°)" << std::endl;
+    std::cout << "  POS1 - Move to preset position 1 (180,180,180,180)" << std::endl;
+    std::cout << "  POS2 - Move to preset position 2 (180,270,180,180)" << std::endl;
+    std::cout << "  POS3 - Move to preset position 3 (180,360,180,180)" << std::endl;
+    std::cout << "  q/quit/exit - Exit the program" << std::endl;
     std::cout << "=========================================" << std::endl;
     
     while(true) {
@@ -115,63 +191,45 @@ int main(int argc, char **argv)
             break;
         }
         
+        // Special command: SET - Calibrate all servos
+        if(input == "SET") {
+            std::cout << "\nCalibrating all connected servos..." << std::endl;
+            std::cout << "This will set the current position of each servo as the middle position (180°)" << std::endl;
+            
+            for(uint8_t id : connectedIDs) {
+                calibrateServo(id);
+            }
+            
+            std::cout << "Calibration complete. All servos now have their current positions set as 180°" << std::endl;
+            continue;
+        }
+        
+        // Preset position commands
+        if(input == "POS1") {
+            std::cout << "Moving to preset position 1 (180,180,180,180)" << std::endl;
+            moveToPreset(connectedIDs, 180.0f, 180.0f, 180.0f, 180.0f);
+            continue;
+        }
+        
+        if(input == "POS2") {
+            std::cout << "Moving to preset position 2 (180,270,180,180)" << std::endl;
+            moveToPreset(connectedIDs, 180.0f, 270.0f, 180.0f, 180.0f);
+            continue;
+        }
+        
+        if(input == "POS3") {
+            std::cout << "Moving to preset position 3 (180,360,180,180)" << std::endl;
+            moveToPreset(connectedIDs, 180.0f, 360.0f, 180.0f, 180.0f);
+            continue;
+        }
+        
         if(!parseInput(input, angle1, angle3, angle5, angle7)) {
             std::cout << "Please enter angles in format: Angle1,Angle3,Angle5,Angle7" << std::endl;
             continue;
         }
         
-        // Calculate mirrored angles for servos 2, 4, and 6
-        angle2 = 360.0f - angle1;
-        angle4 = 360.0f - angle3;
-        angle6 = 360.0f - angle5;
-        
-        // Display the angles being applied
-        std::cout << "\nApplying angles:" << std::endl;
-        std::cout << "Servo 1: " << angle1 << "° | Servo 2: " << angle2 << "° (mirrored)" << std::endl;
-        std::cout << "Servo 3: " << angle3 << "° | Servo 4: " << angle4 << "° (mirrored)" << std::endl;
-        std::cout << "Servo 5: " << angle5 << "° | Servo 6: " << angle6 << "° (mirrored)" << std::endl;
-        std::cout << "Servo 7: " << angle7 << "°" << std::endl;
-        
-        // Convert angles to positions
-        int16_t pos1 = convertToPosition(angle1);
-        int16_t pos2 = convertToPosition(angle2);
-        int16_t pos3 = convertToPosition(angle3);
-        int16_t pos4 = convertToPosition(angle4);
-        int16_t pos5 = convertToPosition(angle5);
-        int16_t pos6 = convertToPosition(angle6);
-        int16_t pos7 = convertToPosition(angle7);
-        
-        // Define servo speeds and acceleration
-        const uint16_t speed = 1500;
-        const uint8_t acc = 50;
-        
-        // Move servos to the specified positions
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 1) != connectedIDs.end()) {
-            sm_st.WritePosEx(1, pos1, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 2) != connectedIDs.end()) {
-            sm_st.WritePosEx(2, pos2, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 3) != connectedIDs.end()) {
-            sm_st.WritePosEx(3, pos3, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 4) != connectedIDs.end()) {
-            sm_st.WritePosEx(4, pos4, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 5) != connectedIDs.end()) {
-            sm_st.WritePosEx(5, pos5, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 6) != connectedIDs.end()) {
-            sm_st.WritePosEx(6, pos6, speed, acc);
-        }
-        if(std::find(connectedIDs.begin(), connectedIDs.end(), 7) != connectedIDs.end()) {
-            sm_st.WritePosEx(7, pos7, speed, acc);
-        }
-        
-        // Wait for movement to complete (approximation)
-        usleep(500 * 1000); // 500ms
-        
-        std::cout << "Movement complete." << std::endl;
+        // Use the moveToPreset function to handle custom positions
+        moveToPreset(connectedIDs, angle1, angle3, angle5, angle7);
     }
     
     std::cout << "Exiting TTRobot Servo Controller." << std::endl;
